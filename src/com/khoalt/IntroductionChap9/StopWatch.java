@@ -9,14 +9,17 @@ public class StopWatch {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Press Enter to start");
-        input.nextLine();
+//        System.out.println("Press Enter to start");
+//        input.nextLine();
+        createNumberList(0, 1000);
         start();
-
-        System.out.println("Press Enter to end");
-        input.nextLine();
+        sortArray(numberList);
         end();
-        System.out.println(getElapsedTime());
+        System.out.println("");
+//        System.out.println("Press Enter to end");
+//        input.nextLine();
+        System.out.println(getElapsedTime() + " miliseconds");
+        input.nextLine();
     }
 
     public static long getEndTime() {
