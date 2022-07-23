@@ -1,12 +1,13 @@
-package com.khoalt.IntroductionChap9;
+package com.khoalt.IntroductionChap9.Ex96;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class StopWatch {
-    private static long startTime, endTime;
-    static int[] numberList = new int[1000];
+import static com.khoalt.IntroductionChap9.Ex96.StopWatch.*;
 
+public class TestStopWatch {
+
+    StopWatch sortingStopWatch = new StopWatch();
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 //        System.out.println("Press Enter to start");
@@ -20,26 +21,6 @@ public class StopWatch {
 //        input.nextLine();
         System.out.println(getElapsedTime() + " miliseconds");
         input.nextLine();
-    }
-
-    public static long getEndTime() {
-        return endTime;
-    }
-
-    public static long getStartTime() {
-        return startTime;
-    }
-
-    public static void start() {
-        startTime = System.currentTimeMillis();
-    }
-
-    public static void end() {
-        endTime = System.currentTimeMillis();
-    }
-
-    public static long getElapsedTime() {
-        return endTime - startTime;
     }
 
     public static void sortArray(int[] numberList) {
@@ -65,5 +46,4 @@ public class StopWatch {
             numberList[i] = min + (int)(Math.random() * max);
         }
     }
-
 }
