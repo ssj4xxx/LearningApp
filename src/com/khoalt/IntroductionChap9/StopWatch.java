@@ -2,7 +2,7 @@ package com.khoalt.IntroductionChap9;
 
 import java.util.Scanner;
 
-class StopWatch {
+public class StopWatch {
     private static long startTime, endTime;
 
     public static void main(String[] args) {
@@ -16,11 +16,11 @@ class StopWatch {
         System.out.println(getElapsedTime());
     }
 
-    public long getEndTime() {
+    public static long getEndTime() {
         return endTime;
     }
 
-    public long getStartTime() {
+    public static long getStartTime() {
         return startTime;
     }
 
