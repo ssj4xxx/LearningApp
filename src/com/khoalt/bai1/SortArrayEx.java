@@ -3,19 +3,21 @@ package com.khoalt.bai1;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SortArray {
+public class SortArrayEx {
     static Scanner input = new Scanner(System.in);
-    static int[] numberList = new int[10];
+    static int[] numberList = new int[1000];
 
     public static void main(String[] args) {
-        System.out.print("Nhap 10 so tu nhien: ");
-        for (int i = 0; i < 10; i++) {
-            numberList[i] = input.nextInt();
-        }
+        System.out.print("Numbers: ");
+        createNumberList(0, 1000);
+        sortArray(numberList);
+    }
+
+    public static void sortArray(int[] numberList) {
         int temp = 0;
         int startIndex = 0;
-        while (startIndex < 10) {
-            for (int i = startIndex; i < 10; i++) {
+        while (startIndex < 1000) {
+            for (int i = startIndex; i < 1000; i++) {
                 int min = numberList[startIndex];
                 if (min >= numberList[i]) {
                     min = numberList[i];
@@ -27,5 +29,11 @@ public class SortArray {
             startIndex++;
         }
         System.out.print(Arrays.toString(numberList));
+    }
+
+    public static void createNumberList(int min, int max) {
+        for (int i = 0; i < 1000; i++) {
+            numberList[i] = min + (int)(Math.random() * max);
+        }
     }
 }
