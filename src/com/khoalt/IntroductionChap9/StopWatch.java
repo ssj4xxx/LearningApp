@@ -1,8 +1,6 @@
-package com.khoalt.doItAgain;
+package com.khoalt.IntroductionChap9;
 
-import java.time.LocalDateTime;
 import java.util.Scanner;
-import java.util.Date;
 
 class StopWatch {
     private static long startTime, endTime;
