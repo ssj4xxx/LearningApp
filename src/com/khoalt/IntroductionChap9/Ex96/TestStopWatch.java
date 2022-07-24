@@ -3,23 +3,23 @@ package com.khoalt.IntroductionChap9.Ex96;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static com.khoalt.IntroductionChap9.Ex96.StopWatch.*;
 
 public class TestStopWatch {
 
-    StopWatch sortingStopWatch = new StopWatch();
+    static StopWatch sortingStopWatch = new StopWatch();
+    static int[] numberList = new int[1000];
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 //        System.out.println("Press Enter to start");
 //        input.nextLine();
         createNumberList(0, 1000);
-        start();
+        sortingStopWatch.start();
         sortArray(numberList);
-        end();
+        sortingStopWatch.end();
         System.out.println("");
 //        System.out.println("Press Enter to end");
 //        input.nextLine();
-        System.out.println(getElapsedTime() + " miliseconds");
+        System.out.println(sortingStopWatch.getElapsedTime() + " miliseconds");
         input.nextLine();
     }
 
@@ -45,5 +45,9 @@ public class TestStopWatch {
         for (int i = 0; i < 1000; i++) {
             numberList[i] = min + (int)(Math.random() * max);
         }
+    }
+
+    public static void testStopWatch() {
+
     }
 }

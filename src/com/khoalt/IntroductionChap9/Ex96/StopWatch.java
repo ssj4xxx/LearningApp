@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class StopWatch {
     private static long startTime, endTime;
-    static int[] numberList = new int[1000];
 
-    StopWatch() {
+    public StopWatch() {
     }
 
     public static long getEndTime() {
