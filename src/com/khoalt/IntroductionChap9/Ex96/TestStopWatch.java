@@ -46,8 +46,4 @@ public class TestStopWatch {
             numberList[i] = min + (int)(Math.random() * max);
         }
     }
-
-    public static void testStopWatch() {
-
-    }
 }
