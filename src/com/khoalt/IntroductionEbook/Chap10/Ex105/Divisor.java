@@ -10,6 +10,7 @@ public class Divisor {
 //        int[] list = divisors(12);
         printList(divisors(number));
         StackOfIntegers divisors1 = new StackOfIntegers(divisors(number));
+        System.out.println("Lưu vao Stack: ");
         divisors1.printStack();
     }
 
