@@ -1,28 +1,28 @@
 package com.khoalt.IntroductionEbook.Chap9.Ex96;
 
 public class StopWatch {
-    private static long startTime, endTime;
+    private long startTime, endTime;
 
     public StopWatch() {
     }
 
-    public static long getEndTime() {
+    public long getEndTime() {
         return endTime;
     }
 
-    public static long getStartTime() {
+    public long getStartTime() {
         return startTime;
     }
 
-    public static void start() {
+    public void start() {
         startTime = System.currentTimeMillis();
     }
 
-    public static void end() {
+    public void end() {
         endTime = System.currentTimeMillis();
     }
 
-    public static long getElapsedTime() {
+    public long getElapsedTime() {
         return endTime - startTime;
     }
 
