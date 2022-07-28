@@ -13,9 +13,12 @@ public class WeatherStation {
         this.pressure = pressure;
     }
 
-//    public static WeatherStation(double fahrenheitTemperature, double psiPressure) {
-//
-//    }
+    public static WeatherStation fromImperial(double temperatureFahrenheit, double pressurePSI) {
+        double temperature = (temperatureFahrenheit - 32) / 1.8;
+        double pressure = pressurePSI / 14.5038;
+        WeatherStation weatherStation = new WeatherStation(temperature, pressure);
+        return weatherStation;
+    }
 
     public double getTemperature() {
         return temperature;
