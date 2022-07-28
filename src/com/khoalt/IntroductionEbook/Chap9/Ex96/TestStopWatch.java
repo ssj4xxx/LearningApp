@@ -1,4 +1,4 @@
-package com.khoalt.IntroductionChap9.Ex96;
+package com.khoalt.IntroductionEbook.Chap9.Ex96;
 
 import java.util.Arrays;
 import java.util.Scanner;

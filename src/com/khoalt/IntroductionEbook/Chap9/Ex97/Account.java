@@ -1,4 +1,4 @@
-package com.khoalt.IntroductionChap9.Ex97;
+package com.khoalt.IntroductionEbook.Chap9.Ex97;
 
 import java.util.Date;
 
