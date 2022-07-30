@@ -1,9 +1,8 @@
 package com.khoalt.PhoneBook;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class PhonebookMain {
     static Scanner input = new Scanner(System.in);
     static PhoneBook pb = new PhoneBook();
 
@@ -21,23 +20,23 @@ public class Main {
             input.nextLine();
             switch (choice) {
                 case 1: {
-                    Main.addContactScr();
+                    PhonebookMain.addContactScr();
                     break;
                 }
                 case 2: {
-                    Main.modifyContactScr();
+                    PhonebookMain.modifyContactScr();
                     break;
                 }
                 case 3: {
-                    Main.deleteContactScr();
+                    PhonebookMain.deleteContactScr();
                     break;
                 }
                 case 4: {
-                    Main.findEntryScr();
+                    PhonebookMain.findEntryScr();
                     break;
                 }
                 case 5: {
-                    Main.showAllEntryScr();
+                    PhonebookMain.showAllEntryScr();
                 }
             }
         } while (choice != 0);
@@ -68,11 +67,11 @@ public class Main {
             input.nextLine();
             switch (choice) {
                 case 1: {
-                    Main.modifyByNameScr();
+                    PhonebookMain.modifyByNameScr();
                     break;
                 }
                 case 2: {
-                    Main.modifyByNumberScr();
+                    PhonebookMain.modifyByNumberScr();
                     break;
                 }
             }
@@ -108,11 +107,11 @@ public class Main {
             input.nextLine();
             switch (choice) {
                 case 1: {
-                    Main.deleteByNameScr();
+                    PhonebookMain.deleteByNameScr();
                     break;
                 }
                 case 2: {
-                    Main.deleteByNumberScr();
+                    PhonebookMain.deleteByNumberScr();
                     break;
                 }
             }
@@ -144,11 +143,11 @@ public class Main {
             input.nextLine();
             switch (choice) {
                 case 1: {
-                    Main.findByNameScr();
+                    PhonebookMain.findByNameScr();
                     break;
                 }
                 case 2: {
-                    Main.findByNumberScr();
+                    PhonebookMain.findByNumberScr();
                     break;
                 }
             }

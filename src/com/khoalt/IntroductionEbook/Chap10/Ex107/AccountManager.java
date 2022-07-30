@@ -24,7 +24,7 @@ public class AccountManager {
             return false;
         } else {
             accountList[id].setBalance(accountList[id].getBalance() - amount);
-            System.out.println("Succes");
+            System.out.println("Success");
             return true;
         }
     }

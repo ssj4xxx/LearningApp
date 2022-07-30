@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.khoalt.PhoneBook.Main
+Main-Class: com.khoalt.PhoneBook.PhonebookMain
 
