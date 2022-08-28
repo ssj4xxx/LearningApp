@@ -1,14 +1,12 @@
 package com.khoalt;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test1 {
 
     public static int quotient(int number1, int number2) {
-        if (number2 == 0)
-            throw new ArithmeticException("Divisor cannot be zero");
+//        if (number2 == 0)
+//            throw new ArithmeticException("Divisor cannot be zero");
         return number1 / number2;
     }
 

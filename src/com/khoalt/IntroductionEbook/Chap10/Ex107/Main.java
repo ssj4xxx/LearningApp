@@ -14,7 +14,7 @@ public class Main {
             System.out.print("Your ID: ");
             id = input.nextInt();
         } while (id >= 10);
-        Account selectedAccount = am.selectAccount(id);
+//        Account selectedAccount = am.selectAccount(id);
         // Tao menu
         int choice;
         do {
