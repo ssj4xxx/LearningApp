@@ -1,4 +1,4 @@
-package com.khoalt.TestKhoa;
+package com.khoalt.TestKhoa.Cht12;
 
 public class TestFileClass {
     public static void main(String[] args) {
