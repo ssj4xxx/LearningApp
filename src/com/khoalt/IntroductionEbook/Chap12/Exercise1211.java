@@ -4,12 +4,12 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Exercise12_11 {
+public class Exercise1211 {
     public static void main(String[] args) throws Exception {
         // Check command line parameter usage
         if (args.length != 2) {
             System.out.println(
-                    "Usage: java ReplaceText sourceFile targetFile oldStr newStr");
+                    "Syntax Error");
             System.exit(1);
         }
 
