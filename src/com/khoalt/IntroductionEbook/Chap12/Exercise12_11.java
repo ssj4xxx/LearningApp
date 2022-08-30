@@ -29,7 +29,7 @@ public class Exercise12_11 {
             while (input.hasNext()) {
                 String s1 = input.nextLine();
                 if (s1.equals(args[0])) {
-                    count++;
+                    count = count + 1;
                 }
             }
             System.out.println(count);
