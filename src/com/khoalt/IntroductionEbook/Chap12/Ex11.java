@@ -23,9 +23,6 @@ public class Ex11 {
         try (
                 // Create input and output files
                 Scanner input = new Scanner(textFile);
-                //Loi
-                PrintWriter output = new PrintWriter(textFile);
-//                PrintWriter output = new PrintWriter("ex112.txt");
         ) {
 //            int count = 0;
 //            while (input.hasNext()) {
@@ -45,7 +42,10 @@ public class Ex11 {
             }
             //Check s3 truoc khi print
             System.out.println(s3);
+            PrintWriter output = new PrintWriter(textFile);
             output.print(s3);
+            output.flush();
+            System.out.println(s3);
         }
     }
 }
