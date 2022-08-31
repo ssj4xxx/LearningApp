@@ -9,9 +9,11 @@ public class Test1 {
     }
 
     public static void main(String[] args) {
-        Integer number = 1;
-        boolean isInt = number instanceof Integer;
-        System.out.println(number.getClass().getName() + isInt);
+        String s1 = "John Dugn Khoa Dung Khoa Khoa Dung John";
+        String s2 = s1.replaceAll("John", "");
+        System.out.println(s2);
+//        PrintWriter output = new PrintWriter("test.txt");
+//        output.print("fjkshdfjkdshjkf");
     }
 
 }
