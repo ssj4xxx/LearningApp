@@ -23,7 +23,8 @@ public class Ex11 {
         try (
                 // Create input and output files
                 Scanner input = new Scanner(textFile);
-                PrintWriter output = new PrintWriter("ex112.txt");
+                PrintWriter output = new PrintWriter(textFile);
+//                PrintWriter output = new PrintWriter("ex112.txt");
         ) {
 //            int count = 0;
 //            while (input.hasNext()) {
@@ -41,9 +42,9 @@ public class Ex11 {
                 System.out.println(s2);
                 s3 = s3 + s2;
             }
+            //Check s3 truoc khi print
             System.out.println(s3);
             output.print(s3);
-            System.out.println(s3);
         }
     }
 }
