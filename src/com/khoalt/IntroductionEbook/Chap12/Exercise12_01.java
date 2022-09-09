@@ -6,9 +6,9 @@ public class Exercise12_01 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         try {
-            int num1 = input.nextInt();
-            String op = input.next();
-            int num2 = input.nextInt();
+            int num1 = Integer.parseInt(args[0]);
+            String op = args[1];
+            int num2 = Integer.parseInt(args[2]);
             double result = 0;
             if (op.equals("+")) {
                 result = num1 + num2;
@@ -21,8 +21,9 @@ public class Exercise12_01 {
             }
             System.out.println(num1 + " " + op + " " + num2 + " = " + result);
         }
-        catch (Exception Ex) {
-            System.out.println("Wrong input");
+        catch (NumberFormatException Ex) {
+//            exAr
+            System.out.println("Wrong input: " + Ex);
         }
 
     }
