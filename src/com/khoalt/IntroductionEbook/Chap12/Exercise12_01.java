@@ -23,7 +23,7 @@ public class Exercise12_01 {
         }
         catch (NumberFormatException Ex) {
 //            exAr
-            System.out.println("Wrong input: " + Ex.getMessage()n);
+            System.out.println("Wrong input: " + Ex.getMessage());
         }
 
     }
