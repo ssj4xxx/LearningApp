@@ -45,6 +45,9 @@ public class TestDataStream {
             System.out.println(input.readUTF() + " " + input.readDouble());
             System.out.println(input.readUTF() + " " + input.readDouble());
             System.out.println(input.readUTF() + " " + input.readDouble());
+            System.out.println(input.readUTF() + " " + input.readDouble());
+            System.out.println(input.readUTF() + " " + input.readDouble());
+            System.out.println(input.readUTF() + " " + input.readDouble());
         }
     }
 }
