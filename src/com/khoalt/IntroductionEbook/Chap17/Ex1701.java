@@ -1,26 +1,20 @@
 package com.khoalt.IntroductionEbook.Chap17;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Ex1701 {
     public static void main(String[] args) throws IOException {
         try (
-            DataOutputStream output = new DataOutputStream(new FileOutputStream("Ex1701.txt",
-                    true))
+                PrintWriter output = new PrintWriter(new FileOutputStream("Ex1701.txt",
+                        true))
         ) {
-            for (int i = 0; i < 10; i++) {
-                output.writeInt((int)(Math.random() * 100));
-                output.writeUTF(" ");
+            for (int i = 0; i < 100; i++) {
+                output.print((int)(Math.random() * 100));
+                output.print(" ");
             }
         }
 
-        try (
-                DataInputStream input = new DataInputStream(new FileInputStream("Ex1701.txt"))
-        ) {
-            for (int i = 0; i < 10; i++) {
-                System.out.print(input.readInt());
-                System.out.print(input.readUTF());
-            }
-        }
     }
 }
