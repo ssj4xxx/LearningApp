@@ -1,4 +1,4 @@
-package com.khoalt.IntroductionEbook.Chap17.Ex1706;
+package com.khoalt.IntroductionEbook.Chap17.Ex17061707;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
