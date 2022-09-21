@@ -26,8 +26,8 @@ public class TestStudentExamScore {
              ObjectInputStream input = new ObjectInputStream(new FileInputStream("Ex1706.dat"))
         ) {
             for (int i = 0; i < 5; i++) {
-                System.out.println(input.readInt());
-                System.out.println(input.readObject().toString());
+                StudentExamScore obj = (StudentExamScore) input.readObject();
+                System.out.println(obj.getId() + " " + obj.getName() + " " + obj.getScore());
             }
         }
     }
