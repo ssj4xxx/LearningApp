@@ -1,4 +1,4 @@
-package com.khoalt.IntroductionEbook.Chap17.Ex17061707;
+package com.khoalt.IntroductionEbook.Chap17.Ex1706;
 
 class StudentExamScore implements java.io.Serializable {
     private int id;

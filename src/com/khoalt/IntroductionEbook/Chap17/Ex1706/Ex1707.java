@@ -1,8 +1,7 @@
-package com.khoalt.IntroductionEbook.Chap17.Ex17061707;
+package com.khoalt.IntroductionEbook.Chap17.Ex1706;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 
 public class Ex1707 {
