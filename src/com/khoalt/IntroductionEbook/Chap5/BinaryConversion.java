@@ -1,9 +1,9 @@
-package com.khoalt;
+package com.khoalt.IntroductionEbook.Chap5;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.Scanner;
 
-public class Test1 {
+public class BinaryConversion {
     public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
         int index = 0;
