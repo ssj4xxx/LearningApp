@@ -133,7 +133,7 @@ public class TextFileCollection extends AbstractCollection implements List {
         //implement
         Scanner input = new Scanner(file);
         while (input.hasNext()) {
-            collection.add(input.nextLine());
+            this.collection.add(input.nextLine());
         }
     }
 
