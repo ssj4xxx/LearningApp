@@ -1,6 +1,6 @@
 package com.khoalt.IntroductionEbook.Chap19;
 
-public abstract class AbstractDog implements DogAction {
+public abstract class Chihuahua implements DogAction {
 
     private String type;
 
