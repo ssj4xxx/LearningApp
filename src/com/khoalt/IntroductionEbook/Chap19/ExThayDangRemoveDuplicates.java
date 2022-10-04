@@ -2,9 +2,7 @@ package com.khoalt.IntroductionEbook.Chap19;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class ExThayDangRemoveDuplicates {
     public static void main(String[] args) throws FileNotFoundException {
@@ -23,10 +21,24 @@ public class ExThayDangRemoveDuplicates {
         stack.push(1);
         stack.push(7);
         stack.push(3);
+
+        DogAction dogAction = new Person();
+
+
+        var test = new ArrayList<DogAction>((Collection<? extends DogAction>) new Person());
 //        System.out.println("Old list: " + stack.toString());
 //        removeDuplicates(stack);
 //        System.out.println("New list: " + stack.toString());
-        TextFileCollection file = new TextFileCollection(new File("testrd.txt"));
+        FileLinesList file = new FileLinesList(new File("testrd.txt"));
+
+        List<String> randomTextList = new FileLinesList();
+        randomTextList.add("Khoa");
+
+
+        var fileLinesList = new FileLinesList(randomTextList);
+        fileLinesList.writeToFile();
+
+
         System.out.println(file);
         removeDuplicates(file);
         System.out.println(file);

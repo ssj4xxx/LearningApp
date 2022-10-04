@@ -1,9 +1,17 @@
 package com.khoalt.IntroductionEbook.Chap19;
 
-public class Person {
+public class Person implements DogAction, Comparable<Person> {
     int age;
     String name;
 
+    public void run(){
+
+    }
+
+    @Override
+    public void bark() {
+
+    }
     public int getAge() {
         return age;
     }
@@ -18,5 +26,11 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    @Override
+    public int compareTo(Person o) {
+        return ((Integer)age).compareTo(o.getAge());
     }
 }
