@@ -31,12 +31,15 @@ public class ExThayDangRemoveDuplicates {
 //        System.out.println("New list: " + stack.toString());
         FileLinesList file = new FileLinesList(new File("testrd.txt"));
 
+        test.a
         List<String> randomTextList = new FileLinesList();
         randomTextList.add("Khoa");
 
 
         var fileLinesList = new FileLinesList(randomTextList);
         fileLinesList.writeToFile();
+
+
 
 
         System.out.println(file);

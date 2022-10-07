@@ -1,13 +1,15 @@
 package com.khoalt;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Test1 {
-    public static void main(String[] args) throws IOException {
-        ArrayList<String> list1 = new ArrayList<>();
-        ArrayList<Integer> list2 = new ArrayList<>();
-        System.out.println(list1 instanceof ArrayList);
-        System.out.println(list2 instanceof ArrayList);
+    public static void main(String[] args) {
+        Collection<String> collection = new ArrayList<>();
+        collection.add("New York");
+        collection.add("Atlanta");
+        collection.add("Dallas");
+        collection.add("Madison");
+        collection.forEach(e -> System.out.print(e.toUpperCase() + " "));
     }
 }

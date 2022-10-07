@@ -1,13 +1,12 @@
 package com.khoalt.IntroductionEbook.Chap19.Ex1903;
 
-import com.khoalt.Circle;
-
 public class Pair {
-    private Circle c;
+    private Object object1;
+    private Object object2;
 
     public Pair() {};
 
     public Pair(double radius) {
-        c.setRadius(radius);
+
     }
 }
