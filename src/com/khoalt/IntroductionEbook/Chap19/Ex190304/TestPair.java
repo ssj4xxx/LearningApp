@@ -8,6 +8,9 @@ public class TestPair {
         System.out.println(smallestValue(p2));
         Pair<String> p3 = new Pair<>("big", "small");
         System.out.println(smallestValue(p3));
+        /* Lines below are not compilable because Color is not comparable
+            Pair<String> pc = new Pair<>(java.awt.Color.BLUE, java.awt.Color.RED);
+            System.out.println(smallest(ps));*/
     }
 
     public static <T extends Comparable<T>> T smallestValue(Pair<T> p) {
