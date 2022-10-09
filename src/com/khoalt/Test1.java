@@ -9,6 +9,7 @@ public class Test1 {
         Collections.shuffle(list1, new Random(20));
         Collections.shuffle(list2, new Random(20));
         System.out.println(new Random(20));
+        Collections.reverse(list1);
         System.out.println(list1);
         System.out.println(list2);
 
