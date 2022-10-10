@@ -1,21 +1,18 @@
 package com.khoalt;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Test1 {
     public static void main(String[] args) {
-        List<String> list1 = Arrays.asList("yellow", "red", "green", "blue");
-        List<String> list2 = Arrays.asList("yellow", "red", "green", "blue");
-        Collections.shuffle(list1, new Random(20));
-        Collections.shuffle(list2, new Random(20));
-        System.out.println(new Random(20));
-        Collections.reverse(list1);
-        System.out.println(list1);
-        System.out.println(list2);
-
-        Collection<String> collection = Arrays.asList("red", "green", "blue");
-        System.out.println(Collections.max(collection));     // Use Comparable
-        System.out.println(Collections.min(collection,
-                Comparator.comparing(String::length))); // Use Comparator
+        System.out.println("Nhap string: ");
+        Scanner input = new Scanner(System.in);
+        Object s1 = input.nextLine();
+        Integer i1;
+        try {
+            i1 = Integer.parseInt((String) s1);
+            System.out.println(i1.getClass());
+        } catch (NumberFormatException ex) {
+            System.out.println("Not an integer");
+        }
     }
 }
