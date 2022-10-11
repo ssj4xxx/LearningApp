@@ -10,6 +10,7 @@ public class Ex2016 {
         System.out.println("Nhap bieu thuc: ");
         Scanner input = new Scanner(System.in);
         String expression = input.nextLine();
+
         System.out.println(infixToPostfix(expression));
     }
 
@@ -17,6 +18,7 @@ public class Ex2016 {
         LinkedList<String> resultList = new LinkedList<>();
 
         //Todo: Code lai phan convert String thanh List
+        expression = insertSpace(expression);
         LinkedList<String> exList = new LinkedList<>(Arrays.asList(expression.split(" ")));
 
         String c;
@@ -30,7 +32,7 @@ public class Ex2016 {
                 }
             } else if (c.equals("+") || c.equals("-") || c.equals("*") || c.equals("/")) {
                 resultList.addLast(c);
-            } else if (c.equals(")")) {
+            } else if (c.equals(")") || c.length() == 0) {
                 continue;
             } else {
                 //infix phan trong ngoac don
@@ -59,5 +61,28 @@ public class Ex2016 {
             }
         }
         return str;
+    }
+
+    public static String insertSpace(String str) {
+        String result = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == '(' || str.charAt(i) == ')' ||
+                    str.charAt(i) == '+' || str.charAt(i) == '-' ||
+                    str.charAt(i) == '*' || str.charAt(i) == '/')
+                result += " " + str.charAt(i) + " ";
+            else
+                result += str.charAt(i);
+        }
+//        for (int i = 0; i < str.length(); i++) {
+//            if (str.charAt(i) == '(') {
+//                result = result + str.charAt(i) + " ";
+//            } else if (str.charAt(i) == ')') {
+//                result = result + " " + str.charAt(i);
+//            } else {
+//                result = result + str.charAt(i);
+//            }
+//        }
+        return result;
     }
 }
