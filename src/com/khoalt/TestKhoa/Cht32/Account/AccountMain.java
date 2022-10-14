@@ -12,9 +12,6 @@ public class AccountMain {
             }
         };
 
-//        Thread thread = new Thread(add1Task);
-//        thread.run();
-
         Thread[] threads = new Thread[100];
         for (int i = 0; i < 100; i++) {
             threads[i] = new Thread(add1Task);
