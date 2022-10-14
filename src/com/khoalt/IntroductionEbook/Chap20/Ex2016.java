@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
+//TODO: Code lai de go sai cu phap cung co the tinh duoc (sua lai infixToPostfix de khong bi tao nhieu space nua)
 public class Ex2016 {
     public static void main(String[] args) {
         System.out.println("Nhap bieu thuc: ");
