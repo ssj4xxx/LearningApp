@@ -1,5 +1,6 @@
 package com.khoalt.TestKhoa.Cht20;
 
+//TODO: Doc lai + viet lai expression
 import java.util.Stack;
 public class EvaluateExpression {
     public static void main(String[] args) {
