@@ -19,13 +19,15 @@ public class AccountWithoutSync {
     }
     private static class AddAPennyTask implements Runnable {
         public void run() {
-            account.deposit(1);
+            synchronized (account) {
+                account.deposit(1);
+            }
         }
     }
     private static class Account {
         private int balance = 0;
         public int getBalance() {return balance;}
-        public synchronized void deposit(int amount) {
+        public /*synchronized*/ void deposit(int amount) {
             int newBalance = balance + amount;
             try {
                 Thread.sleep(5);
