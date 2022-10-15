@@ -17,12 +17,14 @@ public class Ex2104 {
         try (Scanner input = new Scanner(textFile)) {
             while (input.hasNext()) {
                 word = input.next();
-                totalCount = word.length();
+                totalCount = totalCount + word.length();
                 countChar(word);
             }
         } catch (FileNotFoundException ex) {
             throw new RuntimeException(ex);
         }
+        System.out.println("Number of vowels: " + vowelCount);
+        System.out.println("Number of consonants: " + (totalCount - vowelCount));
     }
 
     public static void countChar(String str) {
