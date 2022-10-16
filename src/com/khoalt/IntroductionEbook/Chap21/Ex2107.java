@@ -8,7 +8,7 @@ public class Ex2107 {
         Scanner input = new Scanner(System.in);
 //        String text = input.nextLine();
         String text = "Khoa Khoa khoa ko hao hoa hao";
-        Map<String, Integer> textMap = new TreeMap<>();
+        Map<String, Integer> textMap = new TreeMap<String, Integer>();
         String[] words = text.split("[\\s+\\p{P}]");
 
         for (int i = 0; i < words.length; i++) {
@@ -20,19 +20,29 @@ public class Ex2107 {
             }
         }
         textMap.forEach((k, v) -> System.out.println(k + "\t" + v));
-    }
 
-    static class mapComparator implements Comparator<Map.Entry<String, Integer>> {
-
-        @Override
-        public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-            if (o1.getValue() < o2.getValue()) {
-                return -1;
-            } else if (o1.getValue() == o2.getValue()) {
-                return 0;
-            } else {
-                return 1;
+        // Sort danh sach
+        List textList = new ArrayList<>(textMap.entrySet());
+        for (Map.Entry<String, Integer> entry : textMap.entrySet()) {
+            if (entry.getValue() >= 3) {
+                textList.add(entry);
             }
         }
+
+
+
+        Collections.sort(textList, new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+        System.out.println(textList);
+
+        List wordList = new ArrayList<String>(textMap.keySet());
+        System.out.println(wordList);
+
+//        Set<String> wordSet = new TreeSet<>(textMap.keySet());
+//        System.out.println(wordSet);
     }
 }
