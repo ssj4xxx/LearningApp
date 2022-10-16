@@ -21,28 +21,55 @@ public class Ex2107 {
         }
         textMap.forEach((k, v) -> System.out.println(k + "\t" + v));
 
-        // Sort danh sach
-        List textList = new ArrayList<>(textMap.entrySet());
+//        // Tao list co value>=3
+//        List textList = new ArrayList<>();
+//        for (Map.Entry<String, Integer> entry : textMap.entrySet()) {
+//            if (entry.getValue() >= 2) {
+//                textList.add(entry);
+//            }
+//        }
+//        // Sort list
+//        Collections.sort(textList, new Comparator<Map.Entry<String, Integer>>() {
+//            @Override
+//            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+//                return o2.getValue().compareTo(o1.getValue());
+//            }
+//        });
+//        System.out.println(textList);
+//
+//        List allList = new ArrayList<>(textMap.entrySet());
+//        System.out.println(allList.get(0));
+
+        // Use ArraysList
+        List wordList = new ArrayList<String>();
+        List countList = new ArrayList<Integer>();
         for (Map.Entry<String, Integer> entry : textMap.entrySet()) {
-            if (entry.getValue() >= 3) {
-                textList.add(entry);
+            if (entry.getValue() >= 2) {
+                wordList.add(entry.getKey());
+                countList.add(entry.getValue());
             }
         }
-
-
-
-        Collections.sort(textList, new Comparator<Map.Entry<String, Integer>>() {
-            @Override
-            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o2.getValue().compareTo(o1.getValue());
+        for (int i = 0; i < wordList.size(); i++) {
+            System.out.println(wordList.get(i) + "\t" + countList.get(i));
+        }
+        String[] wordArray = (String[]) wordList.toArray();
+        Integer[] countArray = (Integer[]) countList.toArray();
+        for (int i = 0; i < wordArray.length; i++) {
+            for (int j = i + 1; j< wordArray.length; j++) {
+                int temp = 0;
+                String tempStr = "";
+                if (countArray[j] > countArray[i]) {
+                    temp = countArray[i];
+                    countArray[i] = countArray[j];
+                    countArray[j] = temp;
+                    tempStr = wordArray[i];
+                    wordArray[i] = wordArray[j];
+                    countArray[j] = temp;
+                }
             }
-        });
-        System.out.println(textList);
-
-        List wordList = new ArrayList<String>(textMap.keySet());
-        System.out.println(wordList);
-
-//        Set<String> wordSet = new TreeSet<>(textMap.keySet());
-//        System.out.println(wordSet);
+        }
+        for (int i = 0; i < wordArray.length; i++) {
+            System.out.println(wordArray[i] + "\t" + countArray[i]);
+        }
     }
 }
