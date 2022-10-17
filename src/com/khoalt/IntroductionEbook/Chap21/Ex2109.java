@@ -1,33 +1,21 @@
-package com.khoalt.IntroductionEbook.Chap20.Ex2003;
+package com.khoalt.IntroductionEbook.Chap21;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
-public class Ex2003 {
-    static CapitalCity[] cityArray = new CapitalCity[50];
+public class Ex2109 {
+    static Map<String, String> stateCityMap = new TreeMap<>();
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         getData();
-        List<CapitalCity> cityArrayList = new ArrayList<CapitalCity>(Arrays.asList(cityArray));
-        Collections.shuffle(cityArrayList);
-//        System.out.println(cityArrayList.toString());
-        System.out.println("Game starts: Answer 5 questions");
-        System.out.println();
-        for (int i = 0; i < 5; i++) {
-            System.out.println("What is the capital city of " + cityArrayList.get(i).getState() + ": ");
-            if (!cityArrayList.get(i).getCity().equalsIgnoreCase(input.nextLine())) {
-                System.out.println("The correct capital city of " + cityArrayList.get(i).getState() + " is "
-                + cityArrayList.get(i).getCity());
-            }
-            System.out.println();
-        }
-
+        System.out.println("Nhap state: ");
+        String state = input.nextLine();
+        System.out.println(stateCityMap.get(capitalizeFirstLetter(state)));
     }
 
     public static void getData() {
-
-        CapitalCity cityStatePair = new CapitalCity();
-
         String[][] d = {
                 {"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"Arizona", "Phoenix"},
                 {"Arkansas", "Little Rock"}, {"California", "Sacramento"},
@@ -51,11 +39,15 @@ public class Ex2003 {
                 {"Tennessee", "Nashville"}, {"Texas", "Austin"},
                 {"Utah", "Salt Lake City"}, {"Vermont", "Montpelier"},
                 {"Virginia", "Richmond"}, {"Washington", "Olympia"},
-                {"West Virginia", "Charleston"}, {"Wisconsin", "Madison"},
-                {"Wyoming", "Cheyenne"}};
+                {"West Virginia", "Charleston"}, {"Wisconsin", "Madison"}, {"Wyoming", "Cheyenne"}
+        };
 
         for (int i = 0; i < d.length; i++) {
-            cityArray[i] = new CapitalCity(d[i][0], d[i][1]);
+            stateCityMap.put(d[i][0], d[i][1]);
         }
+    }
+
+    public static String capitalizeFirstLetter(String str) {
+        return str.toUpperCase().charAt(0) + str.substring(1);
     }
 }

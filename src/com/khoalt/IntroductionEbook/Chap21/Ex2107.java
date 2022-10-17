@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Ex2107 {
     public static void main(String[] args) {
-        System.out.println("Nhap text: ");
-        Scanner input = new Scanner(System.in);
+//        System.out.println("Nhap text: ");
+//        Scanner input = new Scanner(System.in);
 //        String text = input.nextLine();
         String text = "Khoa Khoa khoa ko hao hoa hao";
         Map<String, Integer> textMap = new TreeMap<String, Integer>();
@@ -21,6 +21,7 @@ public class Ex2107 {
         }
         textMap.forEach((k, v) -> System.out.println(k + "\t" + v));
 
+        // Loc list, dung Collections.sort
         // Tao list co value>=3
         List textList = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : textMap.entrySet()) {
