@@ -14,6 +14,7 @@ public class Server {
         ServerSocket server;
         Socket socket;
 
+
 //        server = new ServerSocket(port);
 //        socket = server.accept();
 //        in = new DataInputStream(socket.getInputStream());
