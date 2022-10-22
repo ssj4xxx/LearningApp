@@ -8,7 +8,7 @@ public class Client {
     public static void main(String[] args) {
         int port = 8000;
 
-        String host = "localhost"
+        String host = "localhost";
         DataInputStream in;
         DataOutputStream out;
         Socket socket;
