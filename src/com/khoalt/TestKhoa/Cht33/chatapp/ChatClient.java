@@ -27,6 +27,7 @@ public class ChatClient {
                     message = input.nextLine();
                     toServer.writeUTF(message);
                 }
+
             }
         } catch (IOException ex) {
             ex.printStackTrace();
