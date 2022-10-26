@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ChatClient {
+public class OldChatClient {
     private Socket socket;
     private BufferedReader inputFromServer;
     private BufferedWriter outputToServer;
@@ -14,12 +14,12 @@ public class ChatClient {
         System.out.print("Enter your name: ");
         String clientName = input.nextLine();
         Socket socket = new Socket("localhost", 1234);
-        ChatClient client = new ChatClient(socket, clientName);
+        OldChatClient client = new OldChatClient(socket, clientName);
         client.receiveMessage();
         client.sendMessage();
     }
 
-    public ChatClient(Socket socket, String clientName) {
+    public OldChatClient(Socket socket, String clientName) {
         try {
             this.socket = socket;
             this.inputFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));

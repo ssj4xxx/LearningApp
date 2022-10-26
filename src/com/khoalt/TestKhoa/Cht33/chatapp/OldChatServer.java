@@ -1,34 +1,32 @@
 package com.khoalt.TestKhoa.Cht33.chatapp;
 
 import java.io.*;
-import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class ChatServer {
+public class OldChatServer {
     private ServerSocket serverSocket;
-    private Socket socket;
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1234);
-        ChatServer chatServer = new ChatServer(serverSocket);
+        OldChatServer chatServer = new OldChatServer(serverSocket);
         chatServer.startServer();
     }
-    public ChatServer(ServerSocket serverSocket) {
+    public OldChatServer(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }
 
     public void startServer() {
         try {
             while (!serverSocket.isClosed()) {
-                socket = serverSocket.accept();
+                Socket socket = serverSocket.accept();
                 System.out.println("A new client has connected");
                 ClientHandler clientHandler = new ClientHandler(socket);
                 new Thread(clientHandler).start();
             }
         } catch (IOException ex) {
-
+            closeChatServer();
         }
     }
     public void closeChatServer() {
@@ -40,7 +38,7 @@ public class ChatServer {
             ex.printStackTrace();
         }
     }
-    class ClientHandler implements Runnable {
+    public static class ClientHandler implements Runnable {
         public ArrayList<ClientHandler> clients = new ArrayList<>();
         private Socket socket;
         private BufferedReader inputFromClient;
@@ -53,10 +51,10 @@ public class ChatServer {
                 this.inputFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 this.clientName = inputFromClient.readLine();
                 clients.add(this);
-                InetAddress inetAddress = socket.getInetAddress();
-                System.out.println("Client " + clientName + " at " + inetAddress + " has joined the conversation");
+//                InetAddress inetAddress = socket.getInetAddress();
+//                System.out.println("Client " + clientName + " at " + inetAddress + " has joined the conversation");
             } catch (IOException ex) {
-
+                closeSocket(socket, inputFromClient, outputToClient);
             }
 
 
