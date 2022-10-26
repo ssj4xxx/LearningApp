@@ -10,7 +10,7 @@ public class MultiThreadChatClient {
     Socket socket;
     private DataInputStream inputFromServer;
     private DataOutputStream outputToServer;
-    String clientName;
+    String username;
     public static void main(String[] args) throws IOException {
         Socket socket = new Socket("localhost", 1234);
         MultiThreadChatClient client = new MultiThreadChatClient(socket);
@@ -24,8 +24,8 @@ public class MultiThreadChatClient {
             inputFromServer = new DataInputStream(socket.getInputStream());
             outputToServer = new DataOutputStream(socket.getOutputStream());
             System.out.print("Enter your name: ");
-            clientName = input.nextLine();
-            outputToServer.writeUTF(clientName);
+            username = input.nextLine();
+            outputToServer.writeUTF(username);
             outputToServer.flush();
         } catch (IOException ex) {
             closeSocket(socket);

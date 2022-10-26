@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class MultiThreadChatServer {
     private ServerSocket serverSocket;
+    private static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
+
     public static void main(String[] args) {
         new MultiThreadChatServer();
     }
@@ -37,11 +39,10 @@ public class MultiThreadChatServer {
     }
 
     public class ClientHandler implements Runnable {
-        private static ArrayList<ClientHandler> clientHandlers = new ArrayList<>();
         private Socket socket;
         private DataInputStream inputFromClient;
         private DataOutputStream outputToClient;
-
+        private String clientName;
         public ClientHandler(Socket clientSocket) {
             this.socket = clientSocket;
         }
@@ -50,10 +51,10 @@ public class MultiThreadChatServer {
             try {
                 inputFromClient = new DataInputStream(socket.getInputStream());
                 outputToClient = new DataOutputStream(socket.getOutputStream());
-                String clientName = inputFromClient.readUTF();
-                broadcastMessage(clientName + " has joined the conversation");
-//                outputToClient.writeUTF(clientName + " has joined the conversation");
+                clientName = inputFromClient.readUTF();
                 clientHandlers.add(this);
+                broadcastMessage(clientName + ": has joined the conversation");
+//                outputToClient.writeUTF(clientName + " has joined the conversation");
                 String clientMessage;
                 while (socket.isConnected()) {
                     clientMessage = inputFromClient.readUTF();
@@ -66,9 +67,10 @@ public class MultiThreadChatServer {
         public void broadcastMessage(String message) {
             for (ClientHandler clientHandler : clientHandlers) {
                 try {
-                    outputToClient.writeUTF(message);
-                    outputToClient.writeUTF("\n");
-                    outputToClient.flush();
+//                    if (!clientHandler.clientName.equals("k1")) {
+                        outputToClient.writeUTF(message);
+                        outputToClient.flush();
+//                    }
                 } catch (IOException ex) {
                     closeSocket(socket);
                 }
