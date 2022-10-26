@@ -5,19 +5,22 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ChatServer {
     private ServerSocket serverSocket;
     private Socket socket;
 
     public static void main(String[] args) throws IOException {
-        new ChatServer();
+        ServerSocket serverSocket = new ServerSocket(1234);
+        ChatServer chatServer = new ChatServer(serverSocket);
+        chatServer.startServer();
     }
-    public ChatServer() {
+    public ChatServer(ServerSocket serverSocket) {
+        this.serverSocket = serverSocket;
+    }
+
+    public void startServer() {
         try {
-            serverSocket = new ServerSocket(1234);
-            System.out.println("Conversation started at " + new Date());
             while (!serverSocket.isClosed()) {
                 socket = serverSocket.accept();
                 System.out.println("A new client has connected");
@@ -25,10 +28,9 @@ public class ChatServer {
                 new Thread(clientHandler).start();
             }
         } catch (IOException ex) {
-            ex.printStackTrace();
+
         }
     }
-
     public void closeChatServer() {
         try {
             if (serverSocket != null) {
@@ -39,7 +41,7 @@ public class ChatServer {
         }
     }
     class ClientHandler implements Runnable {
-        public static ArrayList<ClientHandler> clients = new ArrayList<>();
+        public ArrayList<ClientHandler> clients = new ArrayList<>();
         private Socket socket;
         private BufferedReader inputFromClient;
         private BufferedWriter outputToClient;
