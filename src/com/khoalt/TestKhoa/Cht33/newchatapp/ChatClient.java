@@ -15,6 +15,8 @@ public class ChatClient {
             this.inputFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.outputToServer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             this.clientName = clientName;
+            outputToServer.write(clientName);
+            outputToServer.flush();
         } catch (IOException ex) {
             closeSocket(socket, inputFromServer, outputToServer);
         }
