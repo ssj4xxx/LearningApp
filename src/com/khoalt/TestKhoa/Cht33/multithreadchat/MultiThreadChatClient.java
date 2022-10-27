@@ -32,15 +32,20 @@ public class MultiThreadChatClient {
         }
     }
     public void sendMessageToServer() {
-        try {
-            Scanner input = new Scanner(System.in);
-            while (socket.isConnected()) {
-                outputToServer.writeUTF(input.nextLine());
-                outputToServer.flush();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Scanner input = new Scanner(System.in);
+                    while (socket.isConnected()) {
+                        outputToServer.writeUTF(input.nextLine());
+                        outputToServer.flush();
+                    }
+                } catch (IOException ex) {
+                    closeSocket(socket);
+                }
             }
-        } catch (IOException ex) {
-            closeSocket(socket);
-        }
+        }).start();
     }
     public void receiveMessageFromServer() {
         new Thread(new Runnable() {
