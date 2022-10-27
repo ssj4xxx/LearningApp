@@ -53,7 +53,8 @@ public class MultiThreadChatServer {
                 outputToClient = new DataOutputStream(socket.getOutputStream());
                 clientName = inputFromClient.readUTF();
                 clientHandlers.add(this);
-                broadcastMessage(clientName + ": has joined the conversation");
+                System.out.println(clientName + ": has joined the conversation");
+                broadcastMessage("has joined the conversation");
 //                outputToClient.writeUTF(clientName + " has joined the conversation");
                 String clientMessage;
                 while (socket.isConnected()) {
@@ -67,10 +68,10 @@ public class MultiThreadChatServer {
         public void broadcastMessage(String message) {
             for (ClientHandler clientHandler : clientHandlers) {
                 try {
-//                    if (!clientHandler.clientName.equals("k1")) {
-                        outputToClient.writeUTF(message);
-                        outputToClient.flush();
-//                    }
+                    if (!clientHandler.clientName.equals(clientName)) {
+                        clientHandler.outputToClient.writeUTF(clientName + ": " + message);
+                        clientHandler.outputToClient.flush();
+                    }
                 } catch (IOException ex) {
                     closeSocket(socket);
                 }
