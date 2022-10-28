@@ -1,53 +1,57 @@
-package com.khoalt.TestKhoa.Cht33.multithreadchat;
+package com.khoalt.TestKhoa.Cht33.multithreadchat.client;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class MultiThreadChatClient {
-    Socket socket;
-    private DataInputStream inputFromServer;
-    private DataOutputStream outputToServer;
+public class ChatClient {
+    private final Socket socket;
+    private final DataInputStream inputFromServer;
+    private final DataOutputStream outputToServer;
     String username;
-    public static void main(String[] args) throws IOException {
-        Socket socket = new Socket("localhost", 1234);
-        MultiThreadChatClient client = new MultiThreadChatClient(socket);
-        client.receiveMessageFromServer();
-        client.sendMessageToServer();
+
+    //1 ham chi lam 1 viec duy nhat
+    public ChatClient(Socket socket) throws IOException {
+        this.socket = socket;
+        inputFromServer = new DataInputStream(socket.getInputStream()); //thay bang text stream
+        outputToServer = new DataOutputStream(socket.getOutputStream());
+        initClient();
     }
-    public MultiThreadChatClient(Socket socket) {
+
+    public void initClient(){
         try {
-            this.socket = socket;
             Scanner input = new Scanner(System.in);
-            inputFromServer = new DataInputStream(socket.getInputStream());
-            outputToServer = new DataOutputStream(socket.getOutputStream());
             System.out.print("Enter your name: ");
             username = input.nextLine();
             outputToServer.writeUTF(username);
             outputToServer.flush();
         } catch (IOException ex) {
-            closeSocket(socket);
+            ex.printStackTrace();
+            closeSocket(socket); //never omit exception
         }
     }
-    public void sendMessageToServer() {
+    //1 ham chi lam 1 viec
+    //Single Responsibility Principle
+    // 1 class
+    public void createSender() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Scanner input = new Scanner(System.in);
-                    while (socket.isConnected()) {
+                while (socket.isConnected()) {
+                    try {
+                        Scanner input = new Scanner(System.in);
                         outputToServer.writeUTF(input.nextLine());
                         outputToServer.flush();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                        closeSocket(socket);
                     }
-                } catch (IOException ex) {
-                    closeSocket(socket);
                 }
+                System.out.println("socket closed. Sender close....");
             }
         }).start();
     }
-    public void receiveMessageFromServer() {
+    public void createReceiver() {
         new Thread(new Runnable() {
             @Override
             public void run() {
