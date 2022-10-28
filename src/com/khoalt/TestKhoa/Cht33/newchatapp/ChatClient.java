@@ -58,7 +58,6 @@ public class ChatClient {
     }
 
     public void closeSocket(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
-//        removeClient();
         try {
             if (bufferedReader != null) {
                 bufferedReader.close();
