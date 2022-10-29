@@ -17,16 +17,17 @@ public class Server implements Runnable {
             while (!serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
                 System.out.println("A new client has connected");
-
+                HandleAClientTask task = new HandleAClientTask(socket);
+                new Thread(task).start();
             }
         } catch (Exception ex) {
             System.out.println("Cannot run server");
             ex.printStackTrace();
         }
     }
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+        var server = new Thread(new Server(1234));
+        server.start();
+        System.out.println("Server starts");
     }
-
-
 }
