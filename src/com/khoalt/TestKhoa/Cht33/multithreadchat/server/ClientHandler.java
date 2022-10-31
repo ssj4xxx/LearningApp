@@ -17,8 +17,8 @@ public class ClientHandler implements Runnable {
     public ClientHandler(Client client, List<Client> clientGroup) throws IOException {
         this.client = client;
         this.clientGroup = clientGroup;
-        this.reader = client.createReader();
-        this.writer = client.createWriter();
+        this.reader = client.createReader(); //Wrong stream
+        this.writer = client.createWriter(); //Wrong stream
     }
     @Override
     public void run() {
