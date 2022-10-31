@@ -5,6 +5,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+//TODO: remove task khi client quit
+//TODO: remove client
 
 public class HandleAClientTask implements Runnable {
     private Socket socket;
@@ -15,9 +17,9 @@ public class HandleAClientTask implements Runnable {
     public HandleAClientTask(Socket socket) {
         try {
             this.socket = socket;
-            serverReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            serverWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            taskClientName = serverReader.readLine();
+            this.serverReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            this.serverWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            this.taskClientName = serverReader.readLine() == null ? "random" : serverReader.readLine(); //TODO: gen random username, doi username
             allTasks.add(this);
         } catch (IOException ex) {
             ex.printStackTrace();

@@ -12,7 +12,7 @@ public class ClientApp {
         String name = input.nextLine();
         Client client = new Client(socket, name);
         client.sendNameToServer();
-        client.sendMessage();
-        client.receiveMessage();
+        client.sender().start();
+        client.receiver().start();
     }
 }
