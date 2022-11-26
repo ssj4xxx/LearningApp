@@ -28,6 +28,7 @@ public class HandleAClientTask implements Runnable {
     }
     @Override
     public void run() {
+        broadcastToAll("has joined the chat");
         while (!socket.isClosed()) {
             try {
                 String messageFromAClient = serverReader.readLine();
@@ -59,6 +60,7 @@ public class HandleAClientTask implements Runnable {
                 socket.close();
                 serverReader.close();
                 serverWriter.close();
+                allTasks.remove(this);
                 System.out.println(this.taskClientName + " has disconnected");
             }
         } catch (Exception ex) {
