@@ -19,7 +19,7 @@ public class HandleAClientTask implements Runnable {
             this.socket = socket;
             this.serverReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.serverWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            this.taskClientName = serverReader.readLine() == null ? "random" : serverReader.readLine(); //TODO: gen random username, doi username
+            this.taskClientName = serverReader.readLine();
             allTasks.add(this);
         } catch (IOException ex) {
             ex.printStackTrace();
