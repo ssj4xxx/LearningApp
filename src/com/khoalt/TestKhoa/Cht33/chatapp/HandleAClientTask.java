@@ -28,13 +28,13 @@ public class HandleAClientTask implements Runnable {
     }
     @Override
     public void run() {
-        while (socket.isConnected()) {
+        while (!socket.isClosed()) {
             try {
                 String messageFromAClient = serverReader.readLine();
                 broadcastToAll(messageFromAClient);
             } catch (Exception ex) {
-                ex.printStackTrace();
                 closeSocket();
+                broadcastToAll("has left the chat");
             }
         }
     }
@@ -55,14 +55,11 @@ public class HandleAClientTask implements Runnable {
     }
     public void closeSocket() {
         try {
-            if (socket != null) {
+            if (!socket.isClosed()) {
                 socket.close();
-            }
-            if (serverReader != null) {
                 serverReader.close();
-            }
-            if (serverWriter != null) {
                 serverWriter.close();
+                System.out.println(this.taskClientName + " has disconnected");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
